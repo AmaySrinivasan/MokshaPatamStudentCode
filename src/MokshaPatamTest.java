@@ -2,8 +2,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -11,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * A puzzle created by Zach Blick
  * for Adventures in Algorithms
  * at Menlo School in Atherton, CA
- *
+ * <p>
  * To use this test file, run either the entire thing or individual tests (one at a time).
  * There are five test cases, each of which will load data from [test number].txt, which is in the
  * test_files directory.
@@ -40,7 +42,9 @@ public class MokshaPatamTest {
 
     @Test
     @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
-    public void testLarger() {setTestData(6);}
+    public void testLarger() {
+        setTestData(6);
+    }
 
     @Test
     @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
@@ -59,8 +63,7 @@ public class MokshaPatamTest {
             boardsize = Integer.parseInt(testReader.readLine());
 
             // Read in the data for each test, then run.
-            for (int i = 0; i < numTests; i++)
-            {
+            for (int i = 0; i < numTests; i++) {
                 int answer = Integer.parseInt(answerReader.readLine());
                 loadTest(testReader);
                 assertEquals(answer, studentSolution.fewestMoves(boardsize, ladders, snakes),
